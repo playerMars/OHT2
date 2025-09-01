@@ -1,0 +1,16 @@
+{
+  "image_path": "uploads\\3d910296-a753-41cd-ae57-c14cc2107452_batch1-0001.jpg",
+  "text": "Invoice no: 51109338\nDate of issue: 04/13/2013\nSeller: Client:\nAndrews, Kirby and Valdez Becker Ltd\n58861 Gonzalez Prairie 8012 Stewart Summit Apt. 455\nLake Daniellefurt, IN 57228 North Douglas, AZ 95355\nTax Id: 945-82-2137 Tax Id: 942-80-0517\n‏:لافقا‎ GB75MCRL06841367619257\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 CLEARANCE! Fast Dell Desktop 3,00 each 209,00 627,00 10% 689,70\nComputer PC DUAL CORE\nWINDOWS 10 4/8/16GB RAM\n2 HP T520 Thin Client Computer 5,00 each 37,75 188,75 10% 207,63\nAMD GX-212JC 1.2GHz 4GB RAM\nTESTED !'READ BELOW!!!\n3 gaming pc desktop computer 1,00 each 400,00 400,00 10% 440,00\n4 12-Core Gaming Computer 3,00 each 464,89 1 394,67 10% 1 534,14\nDesktop PC Tower Affordable\nGAMING PC 8GB AMD Vega RGB\n5 Custom Build Dell Optiplex 9020 5,00 each 221,99 1 109,95 10% 1 220,95\nMT 5-4570 3.20GHz Desktop\nComputer PC\n6 Dell Optiplex 990 MT Computer 4,00 each 269,95 1 079,80 10% 1 187,78\nPC Quad Core i7 3.4GHz 16GB\n2TB HD Windows 10 Pro\n7 Dell Core 2 Duo Desktop 5,00 each 168,00 840,00 10% 924,00\nComputer | Windows XP Pro |\n4GB | 500GB\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 5 640,17 564,02 6 204,19\nTotal $5 640,17 $ 564,02 $ 6 204,19",
+  "detailed": {
+    "text": "04/13/2013 Client: Becker Ltd 8012 Stewart Summit Apt. 455 North Douglas, AZ 95355 Tax Id: 942-80-0517 Net price Net worth VAT [%] Gross worth 209,00 627,00 10% 689,70 37,75 188,75 10% 207,63 400,00 400,00 10% 440,00 464,89 1 394,67 10% 221,99 1 109,95 10% 1 220,95 269,95 1 079,80 10% 1 187,78 168,00 840,00 10% 924,00 Net worth VAT Gross worth 5 640,17 564,02 6 204,19 $5 640,17 $ 564,02 $6 204,19 UM each each each each each each each Invoice no: 51109338 Date of issue: Seller: Andrews, Kirby and Valdez 58861 Gonzalez Prairie Lake Daniellefurt, IN 57228 Tax Id: 945-82-2137 IBAN: GB75MCRL06841367619257 ITEMS No. Description Qty 1 CLEARANCE! Fast Dell Desktop 3,00 Computer PC DUAL CORE WINDOWS 10 4/8/16GB RAM 2 HP T520 Thin Client Computer 5,00 AMD GX-212JC 1.2GHz 4GB RAM TESTED !'READ 3 gaming pc desktop computer 1,00 4 12-Core Gaming Computer 3,00 Desktop PC Tower Affordable GAMING PC 8GB AMD Vega RGB 5 Custom Build Dell Optiplex 9020 5,00 MT 5-4570 3.20GHz Desktop Computer PC 6 Dell Optiplex 990 MT Computer 4,00 PC Quad Core i7 3.4GHz 16GB 2TB HD Windows 10 Pro 7 Dell Core 2 Duo Desktop 5,00 Computer | Windows XP Pro | 468 500GB SUMMARY VAT [%] 10% Total",
+    "confidence": 92.26,
+    "words_detected": 207
+  },
+  "language": "ara+eng",
+  "preprocessing_method": "auto",
+  "processing_time": "2.76s",
+  "timestamp": "2025-09-01T11:18:33.182998",
+  "process_id": "3d910296-a753-41cd-ae57-c14cc2107452",
+  "original_filename": "batch1-0001.jpg",
+  "file_size": 254400
+}
