@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع مجموعة الصور - OCR</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .file-input-container {
+            position: relative;
+            border: 3px dashed #3498db;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .file-input-container:hover {
+            border-color: #2980b9;
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+        
+        .file-input-container.dragover {
+            border-color: #27ae60;
+            background: #e8f5e8;
+        }
+        
+        #fileInput {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .upload-text {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .upload-hint {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transform: translateY(0);
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .file-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+        }
+        
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e1e8ed;
+            margin-bottom: 5px;
+        }
+        
+        .file-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .file-size {
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        
+        .remove-file {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .results-container {
+            margin-top: 30px;
+        }
+        
+        .result-summary {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .result-item {
+            background: #f8f9fa;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .result-item.error {
+            border-color: #e74c3c;
+            background: #fdf2f2;
+        }
+        
+        .result-item.success {
+            border-color: #27ae60;
+            background: #f2fdf2;
+        }
+        
+        .result-text {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .success-message {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>🖼️ رفع مجموعة الصور</h1>
+                <p>اختر عدة صور لاستخراج النص منها مرة واحدة</p>
+            </div>
+            
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+            
+            <form id="batchForm">
+                <div class="form-group">
+                    <label for="fileInput">اختر الصور (يمكنك اختيار عدة ملفات)</label>
+                    <div class="file-input-container" id="fileInputContainer">
+                        <input type="file" id="fileInput" name="files" multiple 
+                               accept="image/png,image/jpeg,image/jpg,image/tiff,image/bmp,image/gif">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-text">انقر لاختيار الصور أو اسحبها هنا</div>
+                        <div class="upload-hint">PNG, JPG, JPEG, TIFF, BMP, GIF</div>
+                    </div>
+                </div>
+                
+                <div id="fileListContainer" style="display: none;">
+                    <div class="form-group">
+                        <label>الملفات المختارة:</label>
+                        <div class="file-list" id="fileList"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="language">اللغة</label>
+                    <select id="language" name="language">
+                        <option value="ara+eng">العربية + الإنجليزية</option>
+                        <option value="ara">العربية فقط</option>
+                        <option value="eng">الإنجليزية فقط</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="method">طريقة المعالجة</label>
+                    <select id="method" name="method">
+                        <option value="auto">تلقائي (موصى به)</option>
+                        <option value="threshold">عتبة</option>
+                        <option value="adaptive">تكيفي</option>
+                        <option value="morphology">مورفولوجي</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="psm_mode">وضع تجزئة الصفحة</label>
+                    <select id="psm_mode" name="psm_mode">
+                        <option value="6">كتلة نص موحدة (افتراضي)</option>
+                        <option value="3">صفحة كاملة</option>
+                        <option value="8">كلمة واحدة</option>
+                        <option value="13">سطر نص واحد</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-primary" id="submitBtn">
+                    🚀 معالجة الصور
+                </button>
+            </form>
+            
+            <div class="loading" id="loadingIndicator">
+                <div class="spinner"></div>
+                <p>جاري معالجة الصور... قد يستغرق هذا بعض الوقت</p>
+            </div>
+        </div>
+        
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <div class="card">
+                <h2>📊 نتائج المعالجة</h2>
+                <div id="resultsContent"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let selectedFiles = [];
+        
+        // عناصر DOM
+        const fileInput = document.getElementById('fileInput');
+        const fileInputContainer = document.getElementById('fileInputContainer');
+        const fileList = document.getElementById('fileList');
+        const fileListContainer = document.getElementById('fileListContainer');
+        const form = document.getElementById('batchForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        
+        // إضافة مستمعي الأحداث
+        fileInput.addEventListener('change', handleFileSelect);
+        fileInputContainer.addEventListener('dragover', handleDragOver);
+        fileInputContainer.addEventListener('drop', handleDrop);
+        fileInputContainer.addEventListener('dragleave', handleDragLeave);
+        form.addEventListener('submit', handleSubmit);
+        
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            addFiles(files);
+        }
+        
+        function handleDragOver(e) {
+            e.preventDefault();
+            fileInputContainer.classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.preventDefault();
+            fileInputContainer.classList.remove('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            fileInputContainer.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files);
+            addFiles(files);
+        }
+        
+        function addFiles(files) {
+            // تصفية الملفات للتأكد من أنها صور
+            const imageFiles = files.filter(file => 
+                file.type.startsWith('image/') && 
+                ['png', 'jpg', 'jpeg', 'tiff', 'bmp', 'gif'].includes(file.name.split('.').pop().toLowerCase())
+            );
+            
+            // إضافة الملفات الجديدة
+            imageFiles.forEach(file => {
+                if (!selectedFiles.find(f => f.name === file.name && f.size === file.size)) {
+                    selectedFiles.push(file);
+                }
+            });
+            
+            updateFileList();
+            
+            if (imageFiles.length !== files.length) {
+                showError(`تم تجاهل ${files.length - imageFiles.length} ملف غير مدعوم`);
+            }
+        }
+        
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updateFileList();
+        }
+        
+        function updateFileList() {
+            if (selectedFiles.length === 0) {
+                fileListContainer.style.display = 'none';
+                submitBtn.disabled = true;
+                return;
+            }
+            
+            fileListContainer.style.display = 'block';
+            submitBtn.disabled = false;
+            
+            fileList.innerHTML = selectedFiles.map((file, index) => `
+                <div class="file-item">
+                    <div class="file-info">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${formatFileSize(file.size)}</div>
+                    </div>
+                    <button type="button" class="remove-file" onclick="removeFile(${index})">
+                        حذف
+                    </button>
+                </div>
+            `).join('');
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+        
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
+        
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            if (selectedFiles.length === 0) {
+                showError('يرجى اختيار ملفات للمعالجة');
+                return;
+            }
+            
+            // إخفاء النتائج السابقة
+            resultsContainer.style.display = 'none';
+            
+            // إظهار مؤشر التحميل
+            loadingIndicator.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            try {
+                // إنشاء FormData
+                const formData = new FormData();
+                
+                // إضافة الملفات - مهم جداً: استخدام اسم "files" وليس "file"
+                selectedFiles.forEach(file => {
+                    formData.append('files', file);
+                });
+                
+                // إضافة المعاملات الأخرى
+                formData.append('language', document.getElementById('language').value);
+                formData.append('method', document.getElementById('method').value);
+                formData.append('psm_mode', document.getElementById('psm_mode').value);
+                
+                // إرسال الطلب
+                const response = await fetch('/batch', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayResults(data.data);
+                    showSuccess(`تمت معالجة ${selectedFiles.length} صورة بنجاح`);
+                } else {
+                    throw new Error(data.error || 'خطأ غير معروف');
+                }
+                
+            } catch (error) {
+                console.error('خطأ:', error);
+                showError(`خطأ في المعالجة: ${error.message}`);
+            } finally {
+                // إخفاء مؤشر التحميل
+                loadingIndicator.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        }
+        
+        function displayResults(data) {
+            const resultsContent = document.getElementById('resultsContent');
+            
+            // ملخص النتائج
+            const summaryHtml = `
+                <div class="result-summary">
+                    <h3>📈 ملخص النتائج</h3>
+                    <p><strong>إجمالي الملفات:</strong> ${data.summary.total}</p>
+                    <p><strong>نجحت:</strong> ${data.summary.successful}</p>
+                    <p><strong>فشلت:</strong> ${data.summary.failed}</p>
+                    <p><strong>معدل النجاح:</strong> ${data.summary.success_rate}</p>
+                    <p><strong>متوسط الثقة:</strong> ${data.summary.avg_confidence}</p>
+                    <p><strong>وقت المعالجة الإجمالي:</strong> ${data.summary.total_processing_time}</p>
+                </div>
+            `;
+            
+            // تفاصيل كل ملف
+            let detailsHtml = '<h3>📄 تفاصيل كل ملف</h3>';
+            
+            // الحصول على النتائج التفصيلية
+            fetch(data.results_url)
+                .then(response => response.json())
+                .then(detailData => {
+                    if (detailData.success && detailData.data.results) {
+                        detailData.data.results.forEach(result => {
+                            const hasError = result.error;
+                            const itemClass = hasError ? 'error' : 'success';
+                            
+                            detailsHtml += `
+                                <div class="result-item ${itemClass}">
+                                    <h4>📁 ${result.original_filename || 'ملف ' + (result.file_index + 1)}</h4>
+                                    ${hasError ? 
+                                        `<p style="color: #e74c3c;"><strong>خطأ:</strong> ${result.error}</p>` :
+                                        `
+                                        <p><strong>الثقة:</strong> ${result.detailed?.confidence || 0}%</p>
+                                        <p><strong>الكلمات المكتشفة:</strong> ${result.detailed?.words_detected || 0}</p>
+                                        <p><strong>وقت المعالجة:</strong> ${result.processing_time}</p>
+                                        ${result.text ? 
+                                            `<div class="result-text">${result.text}</div>` : 
+                                            '<p>لم يتم استخراج أي نص</p>'
+                                        }
+                                        `
+                                    }
+                                </div>
+                            `;
+                        });
+                        
+                        resultsContent.innerHTML = summaryHtml + detailsHtml;
+                        resultsContainer.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('خطأ في جلب التفاصيل:', error);
+                    resultsContent.innerHTML = summaryHtml + '<p style="color: #e74c3c;">خطأ في جلب التفاصيل</p>';
+                    resultsContainer.style.display = 'block';
+                });
+        }
+    </script>
+</body>
+</html>

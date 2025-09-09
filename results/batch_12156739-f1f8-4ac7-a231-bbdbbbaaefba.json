@@ -1,0 +1,131 @@
+{
+  "batch_id": "12156739-f1f8-4ac7-a231-bbdbbbaaefba",
+  "total_files": 7,
+  "successful": 7,
+  "failed": 0,
+  "success_rate": 100.0,
+  "language": "ara+eng",
+  "method": "auto",
+  "psm_mode": 6,
+  "statistics": {
+    "avg_confidence": 93.29,
+    "total_words": 824,
+    "total_processing_time": "15.26s",
+    "avg_processing_time": "2.18s"
+  },
+  "results": [
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\000_batch1-0008.jpg",
+      "text": "Invoice no: 74589240\nDate of issue: 12/08/2013\nSeller: Client:\nHall-Boyd Haas and Sons\n8719 Reed Street Apt. 120 65628 Brittany Dale\nEast Michelleborough, KY 93895 Walterschester, LA 26239\nTax Id: 977-76-9492 Tax Id: 981-73-4585\n‏:لافقا‎ GB51FSWB55572342266497\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 3D Printed Mat Vortex Itlusion 3,00 each 11,63 34,89 10% 38,38\nLiving room Rug Carpet Floors\nDoors Round Mat\n2 New Golden Brown Oriental Rug 5.00 each 232,65 1 163,25 10% 1 279,58\n4X6 Oushak Chobi Floral\nHand-Knotted Foyer Carpet\n3 YILONG 5.5'x8' Handknotted 1,00 each 10 560,00 10 560,00 10% 11 616,00\nSilk Area Rugs Home Decor\nClassic Blue Carpet 0790\n4 Pretty Woman Small Large Long 1,00 each 36,30 36,30 10% 39,93\nFloor Carpet Area Rugs Various\nSize Soft Rug\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 11 794,44 1179,44 12 973,88\nTotal $11 794,44 $1179,44 $ 12 973,88",
+      "detailed": {
+        "text": "12/08/2013 Client: Haas and Sons 65628 Brittany Dale Walterschester, LA 26239 Tax Id: 981-73-4585 Net price Net worth VAT [%] Gross worth 1163 34,89 10% 38,38 232,65 1 163,25 10% 1 279,58 10 560,00 10 560,00 10% 11 616,00 36,30 36,30 10% 39,93 Net worth VAT Gross worth 11 794,44 1179,44 12 973,88 $11 794,44 $1179,44 $ 12 973,88 UM each each each each Invoice no: 74589240 Date of issue: Seller: Hall-Boyd 8719 Reed Street Apt. 120 East Michelleborough, KY 93895 Tax Id: 977-76-9492 IBAN: GB51FSWB55572342266497 ITEMS No. Description Qty 1 3D Printed Mat Vortex 3,00 Living room Rug Carpet Floors Doors Round Mat 2 New Golden Brown Oriental Rug 5.00 4X6 Oushak Chobi Floral Hand-Knotted Foyer Carpet 3 YILONG 5.5'x8\" Handknotted 1,00 Silk Area Rugs Home Decor Classic Blue Carpet 0790 4 Pretty Woman Small Large Long 1,00 Floor Carpet Area Rugs Various Size Soft Rug SUMMARY VAT [%] 10% Total",
+        "confidence": 92.95,
+        "words_detected": 152
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "4.39s",
+      "timestamp": "2025-09-09T13:56:08.629585",
+      "file_index": 0,
+      "original_filename": "batch1-0008.jpg",
+      "file_size": 208864
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\001_batch1-0009.jpg",
+      "text": "Invoice no: 81978187\nDate of issue: 01/17/2013\nSeller: Client:\nPadilla-Miller Johnson Ltd\n53017 Lopez Locks 86731 Ryan Throughway Suite 743\nAlecborough, OH 49620 West Jason, CT 15849\nTax Id: 957-92-5322 Tax Id: 922-87-4664\nIBAN: GB91VPMR74805066714957\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Wine Bottle Holder 5.00 each 10,75 53,75 10% 59,13\n2 Cuisinart Stainless Steel Electric 3,00 each 19,90 59,70 10% 65,67\nWine Opener - CWO-25 - Brand\nNew in the Box\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 113,45 11,34 124,79\nTotal $ 113,45 $ 11,34 $ 124,79",
+      "detailed": {
+        "text": "Gross worth 59,13 65,67 Gross worth 124,79 $ 124,79 01/17/2013 Client: Johnson Ltd 86731 Ryan Throughway Suite 743 West Jason, CT 15849 Tax Id: 922-87-4664 Net price Net worth VAT [%] 10,75 53,75 10% 19,90 59,70 10% Net worth VAT 113,45 11,34 $ 113,45 $ 11,34 UM each each 5,00 3,00 VAT [%] 10% Invoice no: 81978187 Date of issue: Seller: Padilla-Miller 53017 Lopez Locks Alecborough, OH 49620 Tax Id: 957-92-5322 IBAN: GB91VPMR74805066714957 ITEMS No. Description 1 Wine Bottle Holder 2 Cuisinart Stainless Steel Electric Wine Opener - CWO-25 - Brand Total New in the Box SUMMARY",
+        "confidence": 93.15,
+        "words_detected": 97
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "1.58s",
+      "timestamp": "2025-09-09T13:56:10.209678",
+      "file_index": 1,
+      "original_filename": "batch1-0009.jpg",
+      "file_size": 166334
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\002_batch1-0010.jpg",
+      "text": "Invoice no: 99314100\nDate of issue: 06/25/2014\nSeller: Client:\nMichael, Farrell and Lee Collins, Barrett and Schroeder\n95360 Washington Inlet 2314 Beard Via\nPort Sandraview, CT 01507 Kellybury, GA 19687\nTax Id: 993-76-1179 Tax Id: 908-81-7850\nIBAN: GB20WFQR49970703277369\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Real Madrid Inflatable Chair 5.00 each 43,95 219,75 10% 241,73\n(SG16136)\n2 60 Inches Marble Dinning Table 1,00 each 5 756,00 5 756,00 10% 6 331,60\nTop Inlay Work Lawn Table with\nMulti Color Stones\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 5 975,75 597,58 6 573,33\nTotal $5 975,75 $ 597,58 $ 6 573,33",
+      "detailed": {
+        "text": "Gross worth 241,73 6 331,60 Gross worth 6 573,33 $ 6 573,33 06/25/2014 Client: Collins, Barrett and Schroeder 2314 Beard Via Kellybury, GA 19687 Tax Id: 908-81-7850 Net price Net worth VAT [%] each 43,95 219,75 10% each 5 756,00 5 756,00 10% Net worth VAT 5 975,75 597,58 $ 597,58 UM Invoice no: 99314100 Date of issue: Seller: Michael, Farrell and Lee 95360 Washington Inlet Port Sandraview, CT 01507 Tax Id: 993-76-1179 IBAN: GB20WFQR49970703277369 ITEMS No. Description Qty 1 Real Madrid Inflatable Chair 5,00 (SG16136) 2 60 Inches Marble Dinning Table 1,00 Top Inlay Work Lawn Table with Multi Color Stones SUMMARY VAT [%] 10% Total",
+        "confidence": 93.2,
+        "words_detected": 107
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "1.58s",
+      "timestamp": "2025-09-09T13:56:11.787905",
+      "file_index": 2,
+      "original_filename": "batch1-0010.jpg",
+      "file_size": 174190
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\003_batch1-0011.jpg",
+      "text": "Invoice no: 68688408\nDate of issue: 03/20/2016\nSeller: Client:\nTorres and Sons Dennis, Levy and Bowen\n4052 Brown Roads 523 Leslie Manors\nHaysstad, N) 06418 Lake Colleenville, CT 12053\nTax Id: 953-84-2239 Tax Id: 904-82-9186\nIBAN: GB84XSNO58142814072766\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Nike 747998-401 Team Hustle 3,00 each 10,99 32,97 10% 36,27\n07 Kids Blue Mid Top Basketball\nShoes Size 497 US\n2 Jordan Nike Kid Air 1 Retro High 1,00 each 50,00 50,00 10% 55,00\nBlack Gray Elephant Size 7\n838850-013\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 82,97 8,30 91,27\nTotal $ 82,97 $ 8,30 $ 91,27",
+      "detailed": {
+        "text": "Gross worth 36,27 55,00 Gross worth 91,27 $ 91,27 Dennis, Levy and Bowen 523 Leslie Manors Lake Colleenville, CT 12053 Tax Id: 904-82-9186 Net worth VAT [%] 10% 10% 32,97 50,00 VAT 8,30 $ 8,30 03/20/2016 Client: Net price 10,99 50,00 Net worth 82,97 $ 82,97 UM each each Invoice no: 68688408 Date of issue: Seller: Torres and Sons 4052 Brown Roads Haysstad, NJ 06418 Tax Id: 953-84-2239 IBAN: GB84XSNO58142814072766 ITEMS No. Description Qty 1 Nike 747998-401 Team Hustle 3,00 07 Kids Blue Mid Top Basketball Shoes Size 497 US 2 Jordan Nike Kid Air 1 Retro High 1,00 Black Gray Elephant Size 7 838850-013 SUMMARY VAT [(%] 10% Total",
+        "confidence": 93.1,
+        "words_detected": 110
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "1.98s",
+      "timestamp": "2025-09-09T13:56:13.768156",
+      "file_index": 3,
+      "original_filename": "batch1-0011.jpg",
+      "file_size": 175665
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\004_batch1-0012.jpg",
+      "text": "Invoice no: 13407985\nDate of issue: 11/22/2013\nSeller: Client:\nNicholson, Miller and Webster Mccormick and Sons\nUSS Lee 22688 Ortiz Plaza\nFPO AE 74393 Meganfort, WA 91964\nTax Id: 962-88-9077 Tax Id: 997-95-5690\nIBAN: GB23TMKM5035 7047352524\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Adult Kids Pokemon Pikachu 5.00 each 9,95 49,75 10% 54,73\nKigurumi Pajama Cosplay\nChristmas Costume Sleepwear\n2 Vintage 90s Sostanza Plus Size 3,00 each 49,96 149,88 10% 164,87\nDress 22W Floral Cottagecore\n3 balmain dress 36 3,00 each 1 550,00 4 650,00 10% 5 115,00\n4 Lilly Pulitzer 8 Sunkissed with 2,00 each 56,89 113,78 10% 125,16\nGlow Janice Shift Oress\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 4 963,41 496,34 5 459,75\nTotal $4 963,41 $ 496,34 $5 459,75",
+      "detailed": {
+        "text": "Gross worth 54,73 164,87 5 115,00 125.16 Gross worth 5 459,75 1/22/2013 Client: Mccormick and Sons 22688 Ortiz Plaza Meganfort, WA 91964 Tax Id: 997-95-5690 Net worth VAT [%] 10% 10% 10% 10% 49,75 149,88 4 650,00 113,78 VAT 496,34 $ 496,34 Net price 9,95 49,96 1 550,00 56,89 Net worth 1 UM each each each each Invoice no: 13407985 Date of issue: Seller: Nicholson, Miller and Webster USS Lee FPO AE 74393 Tax Id: 962-88-9077 IBAN: ITEMS No. Description Qty 1 Adult Kids Pokemon Pikachu 5,00 Kigurumi Pajama Cosplay Christmas Costume Sleepwear 2 Vintage 90s Sostanza Plus Size 3,00 Dress 22W Floral Cottagecore 3 balmain dress 36 3,00 4 Lilly Pulitzer 8 Sunkissed with 2,00 Glow Janice Shift Oress SUMMARY VAT [%] 10% Total",
+        "confidence": 92.71,
+        "words_detected": 125
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "2.13s",
+      "timestamp": "2025-09-09T13:56:15.901063",
+      "file_index": 4,
+      "original_filename": "batch1-0012.jpg",
+      "file_size": 199060
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\005_batch1-0013.jpg",
+      "text": "Invoice no: 57986024\nDate of issue: 10/17/2015\nSeller: Client:\nSchmidt LLC Allen PLC\n5107 Christina Orchard Apt. 670 157 Michaela Station\nWest Conniemouth, MD 43698 Mariafort, IL 29394\nTax Id: 959-72-9 Tax Id: 907-74-8078\nIBAN: GBO2QDFL22211399552517\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Straw Dogs : Thoughts on 5.00 each 13,99 69,95 10% 76,95\nHumans and Other Animals,\nPaperback by Gray, John, L...\n2 Quilts of INusion 5,00 each 5,79 28,95 10% 31,85\n3 Selected poetry of WH Auden 1,00 each 4,89 4,89 10% 5,38\n4 In the Footsteps of the Russian 4,00 each 25,87 103,48 10% 113,83\nSnowman (Paperback or\nSoftback)\n5 Steam Yacht Varuna, Brand 1,00 each 8.45 8,45 10% 9,29\nNew, Free shipping in the US\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 215,72 21,57 237,29\nTotal $ 215,72 $ 21,57 $ 237,29",
+      "detailed": {
+        "text": "Gross worth 76,95 31,85 5,38 113,83 9,29 Gross worth 237,29 $ 237,29 10/17/2015 Client: Allen PLC 157 Michaela Station Mariafort, IL 29394 Tax Id: 907-74-8078 Net price Net worth VAT [%] 13,99 69,95 10% 5,79 28,95 10% 4,89 4,89 10% 25,87 103,48 10% 8,45 8,45 10% Net worth VAT 215,72 21,57 $ 215,72 $ 21,57 UM each each each each each 5,00 5,00 1,00 4,00 1,00 VAT [%] 10% Invoice no: 57986024 Date of issue: Seller: Schmidt LLC 5107 Christina Orchard Apt. 670 West Conniemouth, MD 43698 Tax Id: 959-72-2889 IBAN: GBO2QDFL22211399552517 ITEMS No. Description 1 Straw Dogs : Thoughts on Humans and Other Animals, Paperback by Gray, John, L... 2 Quilts of 3 Selected poetry of WH Auden 4 In the Footsteps of the Russian Snowman (Paperback or Softback) 5 Steam Yacht Varuna, Brand New, Free shipping in the US SUMMARY Total",
+        "confidence": 93.65,
+        "words_detected": 143
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "2.16s",
+      "timestamp": "2025-09-09T13:56:18.067390",
+      "file_index": 5,
+      "original_filename": "batch1-0013.jpg",
+      "file_size": 198437
+    },
+    {
+      "image_path": "uploads\\12156739-f1f8-4ac7-a231-bbdbbbaaefba\\006_batch1-0014.jpg",
+      "text": "Invoice no: 77596491\nDate of issue: 01/31/2021\nSeller: Client:\nTran, Hurst and Rodgers Stephenson Inc\nUnit 2493 Box 1389 716 Wright Flat Apt. 385\nDPO AP 75814 South Carrie, GA 17790\nTax Id: 988-83-0971 Tax Id: 926-85-5660\n‏:لافقا‎ GBO04ZWCK22425880230961\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Earl Scruggs and the 5-String 1,00 each 22,68 22,68 10% 24,95\nBanjo: Revised and Enhanced\nEdition (Paperback or\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 22,68 2,27 24,95\nTotal $ 22,68 $ 2,27 $ 24,95",
+      "detailed": {
+        "text": "01/31/2021 Client: Stephenson Inc 716 Wright Flat Apt. 385 South Carrie, GA 17790 Tax Id: 926-85-5660 Qty UM Net price Net worth VAT [%] Gross worth 1,00 each 22,68 22,68 10% 24,95 VAT [%] Net worth VAT Gross worth 10% 22,68 2,27 24,95 $ 22,68 $ 2,27 $ 24,95 Invoice no: 77596491 Date of issue: Seller: Tran, Hurst and Rodgers Unit 2493 Box 1389 DPO AP 75814 Tax Id: 988-83-0971 IBAN: GBO4ZWCK22425880230961 ITEMS No. Description 1 Earl Scruggs and the 5-String Banjo: Revised and Enhanced Edition (Paperback or SUMMARY Total",
+        "confidence": 94.28,
+        "words_detected": 90
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "1.44s",
+      "timestamp": "2025-09-09T13:56:19.508899",
+      "file_index": 6,
+      "original_filename": "batch1-0014.jpg",
+      "file_size": 157856
+    }
+  ],
+  "timestamp": "2025-09-09T13:56:19.509311"
+}

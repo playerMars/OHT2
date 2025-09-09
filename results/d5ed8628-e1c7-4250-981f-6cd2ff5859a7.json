@@ -1,0 +1,16 @@
+{
+  "image_path": "uploads\\d5ed8628-e1c7-4250-981f-6cd2ff5859a7_batch1-0126.jpg",
+  "text": "Invoice no: 96569585\nDate of issue: 04/17/2020\nSeller: Client:\nWalker, Andrews and Leblanc Meadows-Young\n2929 Fox Port Suite 852 9644 Lindsay Well Apt. 770\nKyleview, IN 11233 North David, HI 72138\nTax Id: 938-91-2457 Tax Id: 955-85-3683\nIBAN: GB39WSPC07955609287889\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Rug for living room-Minion And 5.00 each 29,96 149,80 10% 164,78\nBanana Area Rugs Living Room\nCarpet, Christmas...\n2 3D Printed Illusion Rug Round 5.00 each 17,13 85,65 10% 94,21\nGrid Vortex Carpet Anti-slip Mat\nFloor Home C4RO\n3 Deluxe Soft Faux Sheepskin 1,00 each 14,62 14,02 10% 15,42\nShaggy Area Floor Rugs Kids\nPlay Carpet\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 249,47 24,95 274,42\nTotal $ 249,47 $ 24,95 $ 274,42",
+  "detailed": {
+    "text": "Gross worth 164,78 94,21 15,42 Gross worth 274,42 $ 274,42 Tax Id: 955-85-3683 Net worth VAT [%] 149,80 10% 85,65 10% 14,02 10% VAT 24,95 $ 24,95 04/17/2020 Client: Meadows-Young 9644 Lindsay Well Apt. 770 North David, HI 72138 Net price 29,96 17,13 14,02 Net worth 249,47 $ 249,47 UM each each each Invoice no: 96569585 Date of issue: Seller: Walker, Andrews and Leblanc 2929 Fox Port Suite 852 Kyleview, IN 11233 Tax Id: 938-91-2457 IBAN: GB39WSPC07955609287889 ITEMS No. Description Qty 1 Rug for living room-Minion And 5.00 Banana Area Rugs Living Room Carpet, Christmas... 2 3D Printed Illusion Rug Round 5.00 Grid Vortex Carpet Anti-slip Mat Floor Home C4RO 3 Deluxe Soft Faux Sheepskin 1,00 Shaggy Area Floor Rugs Kids Play Carpet SUMMARY VAT [%] 10% Total",
+    "confidence": 93.57,
+    "words_detected": 128
+  },
+  "language": "ara+eng",
+  "preprocessing_method": "auto",
+  "processing_time": "2.99s",
+  "timestamp": "2025-09-08T11:40:42.627421",
+  "process_id": "d5ed8628-e1c7-4250-981f-6cd2ff5859a7",
+  "original_filename": "batch1-0126.jpg",
+  "file_size": 188945
+}

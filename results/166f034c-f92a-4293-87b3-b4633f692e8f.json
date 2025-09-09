@@ -1,0 +1,16 @@
+{
+  "image_path": "uploads\\166f034c-f92a-4293-87b3-b4633f692e8f_batch1-0126.jpg",
+  "text": "Gross\nworth\n\n164,78\n\n94,21\n\n15,42\n\nGross worth\n274,42\n\n$ 274,42\n\nTax Id: 955-85-3683\n\nNet worth VAT [%]\n\n149,80 10%\n85,65 10%\n14,02 10%\n\nVAT\n24,95\n$ 24,95\n\n04/17/2020\n\nClient:\n\nMeadows-Young\n9644 Lindsay Well Apt. 770\nNorth David, HI 72138\n\nNet price\n\n29,96\n\n17,13\n\n14,02\n\nNet worth\n249,47\n\n$ 249,47\n\nUM\n\neach\n\neach\n\neach\n\nInvoice no: 96569585\n\nDate of issue:\n\nSeller:\n\nWalker, Andrews and Leblanc\n2929 Fox Port Suite 852\nKyleview, IN 11233\n\nTax Id: 938-91-2457\nIBAN: GB39WSPC07955609287889\n\nITEMS\nNo. Description Qty\n1 Rug for living room-Minion And 5.00\n\nBanana Area Rugs Living Room\nCarpet, Christmas...\n\n2 3D Printed Illusion Rug Round 5.00\nGrid Vortex Carpet Anti-slip Mat\nFloor Home C4RO\n\n3 Deluxe Soft Faux Sheepskin 1,00\nShaggy Area Floor Rugs Kids\nPlay Carpet\nSUMMARY\nVAT [%]\n10%\nTotal",
+  "detailed": {
+    "text": "Gross worth 164,78 94,21 15,42 Gross worth 274,42 $ 274,42 Tax Id: 955-85-3683 Net worth VAT [%] 149,80 10% 85,65 10% 14,02 10% VAT 24,95 $ 24,95 04/17/2020 Client: Meadows-Young 9644 Lindsay Well Apt. 770 North David, HI 72138 Net price 29,96 17,13 14,02 Net worth 249,47 $ 249,47 UM each each each Invoice no: 96569585 Date of issue: Seller: Walker, Andrews and Leblanc 2929 Fox Port Suite 852 Kyleview, IN 11233 Tax Id: 938-91-2457 IBAN: GB39WSPC07955609287889 ITEMS No. Description Qty 1 Rug for living room-Minion And 5.00 Banana Area Rugs Living Room Carpet, Christmas... 2 3D Printed Illusion Rug Round 5.00 Grid Vortex Carpet Anti-slip Mat Floor Home C4RO 3 Deluxe Soft Faux Sheepskin 1,00 Shaggy Area Floor Rugs Kids Play Carpet SUMMARY VAT [%] 10% Total",
+    "confidence": 93.57,
+    "words_detected": 128
+  },
+  "language": "ara+eng",
+  "preprocessing_method": "auto",
+  "processing_time": "5.34s",
+  "timestamp": "2025-09-08T11:40:12.896840",
+  "process_id": "166f034c-f92a-4293-87b3-b4633f692e8f",
+  "original_filename": "batch1-0126.jpg",
+  "file_size": 188945
+}

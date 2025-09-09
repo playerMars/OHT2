@@ -1,0 +1,16 @@
+{
+  "image_path": "uploads\\22085c09-95c5-47af-b6da-6641d19f1dd5_batch1-0013.jpg",
+  "text": "Invoiceno:57986024\nDateofissue: 10172015\nSeller: Client:\nSchmidtLLC AllenPLC\n5107ChristinaOrchardApt.670 157MichaelaStation\nWestConniemouth,MD43698 Mariafort,IL29394\nTaxId:959722889 TaxId:907.74.8078\nIBAN:GBO2QDFL22211399552517\nITEMS\nNo. Description Qty UM Netprice Networth VAT Gross\nworth\n1 StrawDogs:Thoughtson 5.00 each 13,99 69,95 10 76,95\nHumansandOtherAnimals,\nPaperbackbyGray,John,L...\n2 QuiltsofINusion 5,00 each 5,79 28,95 10 31,85\n3 SelectedpoetryofWHAuden 1,00 each 4,89 4,89 10 5,38\n4 IntheFootstepsoftheRussian 4,00 each 25,87 103,48 10 113,83\nSnowmanPaperbackor\nSoftback\n5 SteamYachtVaruna,Brand 1,00 each 8.45 8,45 10 9,29\nNew,FreeshippingintheUS\nSUMMARY\nVAT Networth VAT Grossworth\n10 215,72 21,57 237,29\nTotal 215,72 21,57 237,29",
+  "detailed": {
+    "text": "Invoice no: 57986024 Date of issue: Seller: Schmidt LLC 5107 Christina Orchard Apt. 670 West Conniemouth, MD 43698 Tax Id: 959-72-2889 IBAN: GBO2QDFL22211399552517 ITEMS No. Description 1 Straw Dogs : Thoughts on Humans and Other Animals, Paperback by Gray, John, L... 2 Quilts of 3 Selected poetry of WH Auden 4 In the Footsteps of the Russian Snowman (Paperback or Softback) 5 Steam Yacht Varuna, Brand New, Free shipping in the US SUMMARY Total 5,00 5,00 1,00 4,00 1,00 VAT [%] 10% 10/17/2015 UM each each each each each Client: Allen PLC 157 Michaela Station Mariafort, IL 29394 Tax Id: 907-74-8078 Net price 13,99 4,89 25,87 8.45 Net worth 215,72 $ 215,72 Net worth VAT [%] 69,95 10% 28,95 10% 4,89 10% 103,48 10% 8,45 10% VAT 21,57 $ 21,57 Gross worth 76,95 31,85 5,38 113,83 9,29 Gross worth 237,29 $ 237,29",
+    "confidence": 93.69,
+    "words_detected": 142
+  },
+  "language": "eng",
+  "preprocessing_method": "auto",
+  "processing_time": "2.03s",
+  "timestamp": "2025-09-08T11:13:29.652779",
+  "process_id": "22085c09-95c5-47af-b6da-6641d19f1dd5",
+  "original_filename": "batch1-0013.jpg",
+  "file_size": 198437
+}

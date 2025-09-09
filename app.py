@@ -2,7 +2,7 @@
 # Flask OCR API - Backend الكامل
 # ==============================================================================
 
-from flask import Flask, request, jsonify, send_file, render_template_string
+from flask import Flask, request, jsonify, send_file, render_template_string, render_template
 from flask_cors import CORS
 import os
 import json
@@ -274,6 +274,12 @@ def cleanup_old_files():
 @app.route('/')
 def home():
     """الصفحة الرئيسية"""
+    return render_template("index.html")
+
+@app.route('/app')
+def web_app():
+    """عرض الواجهة التفاعلية"""
+    # قراءة محتوى HTML من الملف الحالي أو إرجاع واجهة بسيطة
     return create_response(data={
         'message': 'مرحباً بك في OCR API المتقدم',
         'version': '2.0.0',
@@ -299,82 +305,6 @@ def home():
         'supported_formats': list(ALLOWED_EXTENSIONS),
         'max_file_size': '16MB'
     })
-
-@app.route('/app')
-def web_app():
-    """عرض الواجهة التفاعلية"""
-    # قراءة محتوى HTML من الملف الحالي أو إرجاع واجهة بسيطة
-    return render_template_string('''
-    <!DOCTYPE html>
-    <html dir="rtl">
-    <head>
-        <title>OCR Web App</title>
-        <meta charset="utf-8">
-        <style>
-            body { font-family: Arial; padding: 20px; text-align: center; }
-            .upload-area { border: 2px dashed #ccc; padding: 50px; margin: 20px 0; }
-            button { padding: 10px 20px; margin: 10px; cursor: pointer; }
-            #result { margin-top: 20px; padding: 20px; background: #f5f5f5; }
-        </style>
-    </head>
-    <body>
-        <h1>🔤 تطبيق OCR المتقدم</h1>
-        <div class="upload-area" onclick="document.getElementById('file').click()">
-            📁 اضغط هنا لرفع صورة
-            <input type="file" id="file" style="display:none" accept="image/*">
-        </div>
-        
-        <select id="language">
-            <option value="eng">English</option>
-            <option value="ara">العربية</option>
-            <option value="ara+eng" selected>عربي + إنجليزي</option>
-        </select>
-        
-        <button onclick="processImage()">معالجة الصورة</button>
-        <div id="result"></div>
-        
-        <script>
-            async function processImage() {
-                const fileInput = document.getElementById('file');
-                const language = document.getElementById('language').value;
-                
-                if (!fileInput.files[0]) {
-                    alert('اختر صورة أولاً');
-                    return;
-                }
-                
-                const formData = new FormData();
-                formData.append('file', fileInput.files[0]);
-                formData.append('language', language);
-                
-                document.getElementById('result').innerHTML = 'جاري المعالجة...';
-                
-                try {
-                    const response = await fetch('/upload', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.success) {
-                        document.getElementById('result').innerHTML = 
-                            '<h3>النتيجة:</h3>' +
-                            '<p><strong>النص:</strong> ' + (data.data.text || 'لم يتم استخراج نص') + '</p>' +
-                            '<p><strong>الثقة:</strong> ' + data.data.confidence + '%</p>';
-                    } else {
-                        document.getElementById('result').innerHTML = 
-                            '<p style="color: red">خطأ: ' + data.error + '</p>';
-                    }
-                } catch (error) {
-                    document.getElementById('result').innerHTML = 
-                        '<p style="color: red">خطأ في الاتصال: ' + error.message + '</p>';
-                }
-            }
-        </script>
-    </body>
-    </html>
-    ''')
 
 @app.route('/upload', methods=['POST', 'OPTIONS'])
 def upload_and_process():
@@ -451,6 +381,10 @@ def upload_and_process():
         update_stats(success=False)
         return create_response(False, error=f'خطأ في الخادم: {str(e)}', status_code=500)
 
+# ==============================================================================
+# تصحيح مسار /batch للتعامل مع مجموعة الصور
+# ==============================================================================
+
 @app.route('/batch', methods=['POST', 'OPTIONS'])
 def batch_process():
     """معالجة مجموعة من الصور"""
@@ -458,23 +392,43 @@ def batch_process():
         return create_response(data={'status': 'OK'})
     
     try:
-        # التحقق من وجود ملفات
+        print("🔍 بدء معالجة طلب batch...")
+        print(f"Content-Type: {request.content_type}")
+        print(f"Form keys: {list(request.form.keys())}")
+        print(f"Files keys: {list(request.files.keys())}")
+        
+        # التحقق من وجود ملفات - مهم: البحث عن 'files' وليس 'file'
         if 'files' not in request.files:
-            return create_response(False, error='لم يتم رفع أي ملفات', status_code=400)
+            print("❌ لم يتم العثور على 'files' في request.files")
+            return create_response(False, error='لم يتم رفع أي ملفات. تأكد من استخدام اسم الحقل "files"', status_code=400)
         
         files = request.files.getlist('files')
+        print(f"📁 عدد الملفات المرفوعة: {len(files)}")
+        
         if not files or all(f.filename == '' for f in files):
-            return create_response(False, error='لم يتم اختيار ملفات', status_code=400)
+            print("❌ لا توجد ملفات صحيحة")
+            return create_response(False, error='لم يتم اختيار ملفات صحيحة', status_code=400)
+        
+        # طباعة أسماء الملفات للتتبع
+        for i, file in enumerate(files):
+            print(f"📄 ملف {i+1}: {file.filename}")
         
         # المعاملات
         language = request.form.get('language', 'ara+eng')
         method = request.form.get('method', 'auto')
         psm_mode = int(request.form.get('psm_mode', 6))
         
+        print(f"🔧 المعاملات - اللغة: {language}, الطريقة: {method}, PSM: {psm_mode}")
+        
+        # التحقق من صحة اللغة
+        if language not in ocr_service.supported_languages:
+            return create_response(False, error=f'لغة غير مدعومة: {language}. اللغات المدعومة: {list(ocr_service.supported_languages.keys())}', status_code=400)
+        
         # معرف المجموعة
         batch_id = generate_unique_id()
         batch_folder = os.path.join(app.config['UPLOAD_FOLDER'], batch_id)
         os.makedirs(batch_folder, exist_ok=True)
+        print(f"📂 تم إنشاء مجلد المجموعة: {batch_folder}")
         
         results = []
         successful = 0
@@ -482,22 +436,51 @@ def batch_process():
         total_processing_time = 0
         
         for i, file in enumerate(files):
-            if file.filename == '' or not allowed_file(file.filename):
+            print(f"\n🔄 معالجة الملف {i+1}/{len(files)}: {file.filename}")
+            
+            # التحقق من صحة الملف
+            if file.filename == '':
+                print(f"⚠️ ملف فارغ في الفهرس {i}")
+                failed += 1
+                results.append({
+                    'file_index': i,
+                    'original_filename': 'ملف فارغ',
+                    'error': 'اسم ملف فارغ'
+                })
+                continue
+            
+            if not allowed_file(file.filename):
+                print(f"⚠️ امتداد ملف غير مدعوم: {file.filename}")
                 failed += 1
                 results.append({
                     'file_index': i,
                     'original_filename': file.filename,
-                    'error': 'امتداد ملف غير مدعوم'
+                    'error': f'امتداد ملف غير مدعوم. المدعوم: {", ".join(ALLOWED_EXTENSIONS)}'
                 })
                 continue
             
             try:
                 # حفظ الملف
                 filename = secure_filename(file.filename)
+                if not filename:  # في حالة كان اسم الملف يحتوي على أحرف غير مدعومة فقط
+                    filename = f"file_{i}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
+                
                 file_path = os.path.join(batch_folder, f"{i:03d}_{filename}")
                 file.save(file_path)
+                print(f"💾 تم حفظ الملف: {file_path}")
                 
-                # معالجة
+                # التحقق من حفظ الملف
+                if not os.path.exists(file_path):
+                    raise Exception("فشل في حفظ الملف")
+                
+                file_size = os.path.getsize(file_path)
+                print(f"📊 حجم الملف: {file_size} بايت")
+                
+                if file_size == 0:
+                    raise Exception("الملف فارغ")
+                
+                # معالجة الصورة
+                print(f"🖼️ بدء معالجة الصورة...")
                 result = ocr_service.process_single_image(
                     image_path=file_path,
                     language=language,
@@ -505,39 +488,53 @@ def batch_process():
                     psm_mode=psm_mode
                 )
                 
-                if result:
+                if result and result.get('text') is not None:
                     result['file_index'] = i
-                    result['original_filename'] = filename
-                    result['file_size'] = os.path.getsize(file_path)
+                    result['original_filename'] = file.filename
+                    result['file_size'] = file_size
                     results.append(result)
                     successful += 1
+                    print(f"✅ نجحت معالجة الملف {i+1}")
+                    print(f"📝 طول النص المستخرج: {len(result.get('text', ''))}")
                     
                     # حساب وقت المعالجة الإجمالي
                     time_str = result['processing_time'].replace('s', '')
-                    total_processing_time += float(time_str)
+                    try:
+                        total_processing_time += float(time_str)
+                    except ValueError:
+                        print(f"⚠️ لا يمكن تحويل وقت المعالجة: {time_str}")
                 else:
                     failed += 1
                     results.append({
                         'file_index': i,
-                        'original_filename': filename,
-                        'error': 'فشل في المعالجة'
+                        'original_filename': file.filename,
+                        'error': 'فشل في معالجة الصورة - لم يتم استخراج نص'
                     })
+                    print(f"❌ فشل في معالجة الملف {i+1}")
             
             except Exception as e:
                 failed += 1
+                error_msg = str(e)
                 results.append({
                     'file_index': i,
                     'original_filename': file.filename,
-                    'error': str(e)
+                    'error': error_msg
                 })
+                print(f"❌ خطأ في معالجة الملف {i+1}: {error_msg}")
+        
+        print(f"\n📊 ملخص المعالجة:")
+        print(f"   إجمالي: {len(files)}")
+        print(f"   نجح: {successful}")
+        print(f"   فشل: {failed}")
+        print(f"   وقت المعالجة الإجمالي: {total_processing_time:.2f}s")
         
         # حساب الإحصائيات
         avg_confidence = 0
         total_words = 0
         if successful > 0:
-            confidences = [r['detailed']['confidence'] for r in results if 'detailed' in r]
+            confidences = [r['detailed']['confidence'] for r in results if 'detailed' in r and 'confidence' in r['detailed']]
             avg_confidence = sum(confidences) / len(confidences) if confidences else 0
-            total_words = sum(r['detailed']['words_detected'] for r in results if 'detailed' in r)
+            total_words = sum(r['detailed']['words_detected'] for r in results if 'detailed' in r and 'words_detected' in r['detailed'])
         
         # حفظ نتائج المجموعة
         batch_result = {
@@ -556,11 +553,15 @@ def batch_process():
                 'avg_processing_time': f"{(total_processing_time/max(successful, 1)):.2f}s"
             },
             'results': results,
-            'timestamp': datetime.now().isoformat()
+            'timestamp': datetime.now().isoformat(),
+            'batch_folder': batch_folder
         }
         
+        # حفظ النتيجة
         save_result(batch_result, f"batch_{batch_id}")
         update_stats(success=successful > 0, language=language, method=method)
+        
+        print(f"✅ تمت معالجة المجموعة بنجاح. ID: {batch_id}")
         
         return create_response(data={
             'batch_id': batch_id,
@@ -573,11 +574,217 @@ def batch_process():
                 'total_processing_time': f"{total_processing_time:.2f}s"
             },
             'results_url': f"/result/batch_{batch_id}",
-            'download_url': f"/download/batch_{batch_id}"
+            'download_url': f"/download/batch_{batch_id}",
+            'details': f"تمت معالجة {successful} من أصل {len(files)} ملف بنجاح"
         })
     
     except Exception as e:
+        print(f"❌ خطأ عام في المعالجة المجمعة: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return create_response(False, error=f'خطأ في المعالجة المجمعة: {str(e)}', status_code=500)
+
+
+# ==============================================================================
+# تحسينات إضافية لحل مشاكل الـ batch processing
+# ==============================================================================
+
+@app.route('/test-batch', methods=['GET'])
+def test_batch_endpoint():
+    """اختبار نقطة النهاية batch"""
+    return create_response(data={
+        'message': 'نقطة النهاية /batch متاحة وتعمل',
+        'expected_field_name': 'files',
+        'supported_methods': ['POST'],
+        'required_parameters': {
+            'files': 'قائمة من ملفات الصور',
+            'language': 'اختياري - افتراضي ara+eng',
+            'method': 'اختياري - افتراضي auto',
+            'psm_mode': 'اختياري - افتراضي 6'
+        },
+        'example_curl': '''
+        curl -X POST http://localhost:5000/batch \\
+          -F "files=@image1.jpg" \\
+          -F "files=@image2.jpg" \\
+          -F "language=ara+eng" \\
+          -F "method=auto"
+        ''',
+        'troubleshooting': {
+            'http_404': 'تأكد أن الخادم يعمل على المنفذ الصحيح',
+            'field_name': 'استخدم "files" وليس "file" كاسم للحقل',
+            'multiple_files': 'تأكد من إضافة multiple="true" في HTML'
+        }
+    })
+
+@app.route('/debug-request', methods=['POST'])
+def debug_request():
+    """تحليل الطلب لاستكشاف الأخطاء"""
+    debug_info = {
+        'method': request.method,
+        'content_type': request.content_type,
+        'form_keys': list(request.form.keys()),
+        'files_keys': list(request.files.keys()),
+        'form_data': dict(request.form),
+        'headers': dict(request.headers),
+        'endpoint': request.endpoint,
+        'url': request.url
+    }
+    
+    # معلومات الملفات
+    files_info = {}
+    for key in request.files.keys():
+        files_list = request.files.getlist(key)
+        files_info[key] = [
+            {
+                'filename': f.filename,
+                'content_type': f.content_type,
+                'size': len(f.read()) if hasattr(f, 'read') else 'unknown'
+            }
+            for f in files_list
+        ]
+        # إعادة تعيين مؤشر الملف للقراءة مرة أخرى
+        for f in files_list:
+            if hasattr(f, 'seek'):
+                f.seek(0)
+    
+    debug_info['files_info'] = files_info
+    
+    return create_response(data=debug_info)
+
+
+# ==============================================================================
+# دالة مساعدة محسنة للتحقق من الملفات
+# ==============================================================================
+
+def validate_uploaded_files(files):
+    """التحقق من صحة الملفات المرفوعة"""
+    if not files:
+        return False, "لا توجد ملفات"
+    
+    valid_files = []
+    errors = []
+    
+    for i, file in enumerate(files):
+        if not file.filename:
+            errors.append(f"الملف {i+1}: اسم فارغ")
+            continue
+            
+        if not allowed_file(file.filename):
+            errors.append(f"الملف {i+1} ({file.filename}): امتداد غير مدعوم")
+            continue
+            
+        # قراءة بداية الملف للتحقق من أنه صورة فعلية
+        try:
+            file.seek(0)
+            header = file.read(10)
+            file.seek(0)
+            
+            # التحقق من headers الصور الشائعة
+            image_headers = [
+                b'\xff\xd8\xff',  # JPEG
+                b'\x89PNG\r\n\x1a\n',  # PNG
+                b'GIF87a',  # GIF87a
+                b'GIF89a',  # GIF89a
+                b'BM',  # BMP
+                b'II*\x00',  # TIFF (little endian)
+                b'MM\x00*'   # TIFF (big endian)
+            ]
+            
+            is_image = any(header.startswith(h) for h in image_headers)
+            if not is_image:
+                errors.append(f"الملف {i+1} ({file.filename}): ليس صورة صحيحة")
+                continue
+                
+        except Exception as e:
+            errors.append(f"الملف {i+1} ({file.filename}): خطأ في القراءة - {str(e)}")
+            continue
+        
+        valid_files.append(file)
+    
+    if not valid_files:
+        return False, f"لا توجد ملفات صحيحة. الأخطاء: {'; '.join(errors)}"
+    
+    return True, f"تم العثور على {len(valid_files)} ملف صحيح من أصل {len(files)}"
+
+
+# ==============================================================================
+# تحسين معالج الأخطاء
+# ==============================================================================
+
+@app.errorhandler(413)
+def file_too_large(e):
+    """معالج خطأ حجم الملف الكبير"""
+    max_size_mb = app.config['MAX_CONTENT_LENGTH'] / (1024 * 1024)
+    return create_response(
+        False, 
+        error=f'حجم الملف/الملفات كبير جداً. الحد الأقصى: {max_size_mb:.0f}MB', 
+        status_code=413
+    )
+
+@app.errorhandler(400)
+def bad_request(e):
+    """معالج الطلبات الخاطئة"""
+    return create_response(
+        False,
+        error='طلب غير صحيح. تأكد من إرسال الملفات بالطريقة الصحيحة',
+        status_code=400
+    )
+
+# إضافة headers للـ CORS
+@app.after_request
+def after_request(response):
+    """إضافة headers بعد كل طلب"""
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
+
+# ==============================================================================
+# اختبار سريع للـ OCR service
+# ==============================================================================
+
+@app.route('/test-ocr')
+def test_ocr_service():
+    """اختبار خدمة OCR"""
+    try:
+        # إنشاء صورة اختبار بسيطة
+        import numpy as np
+        from PIL import Image, ImageDraw, ImageFont
+        
+        # إنشاء صورة بيضاء مع نص
+        img = Image.new('RGB', (300, 100), color='white')
+        draw = ImageDraw.Draw(img)
+        
+        try:
+            # محاولة استخدام خط افتراضي
+            font = ImageFont.load_default()
+        except:
+            font = None
+        
+        # كتابة نص تجريبي
+        draw.text((10, 30), "Test OCR Service", fill='black', font=font)
+        draw.text((10, 60), "اختبار الخدمة", fill='black', font=font)
+        
+        # حفظ الصورة مؤقتاً
+        test_image_path = os.path.join(app.config['TEMP_FOLDER'], 'test_image.png')
+        img.save(test_image_path)
+        
+        # تشغيل OCR
+        result = ocr_service.process_single_image(test_image_path, 'ara+eng', 'auto')
+        
+        # حذف الصورة المؤقتة
+        if os.path.exists(test_image_path):
+            os.remove(test_image_path)
+        
+        return create_response(data={
+            'ocr_service_status': 'يعمل بشكل صحيح',
+            'test_result': result,
+            'extracted_text': result.get('text', '') if result else 'فشل الاستخراج'
+        })
+        
+    except Exception as e:
+        return create_response(False, error=f'خطأ في اختبار OCR: {str(e)}', status_code=500)
 
 @app.route('/result/<result_id>')
 def get_result(result_id):

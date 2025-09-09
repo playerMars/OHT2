@@ -13,7 +13,7 @@ sys.path.insert(0, str(project_dir))
 
 # استيراد التطبيق
 try:
-    from app import app, ocr_service
+    from templates.app import app, ocr_service
     from config import DevelopmentConfig, ProductionConfig
 except ImportError as e:
     print(f"❌ خطأ في الاستيراد: {e}")

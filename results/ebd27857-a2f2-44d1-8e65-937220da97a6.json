@@ -1,0 +1,16 @@
+{
+  "image_path": "uploads\\ebd27857-a2f2-44d1-8e65-937220da97a6_batch1-0017.jpg",
+  "text": "Invoiceno:98858130\nDateofissue: 01f282021\nSeller: Client:\nDominguez,JacksonandSteele Rodriguez,HallandTanner\n98309StephanieStream PSC6611,Box2668\nMichaelbury,RI57219 APOAP07491\nTaxId:96972.5121 TaxId:941.88.5692\nIBAN:GB210JGQ49248059733020\nITEMS\nNo. Description Qty UM Netprice Networth VAT Gross\nworth\n1 WineGlassesSetOf4 2,00 each 6,00 12,00 10 13,20\n2 UncorkNewYorkrolling 5.00 each 5,99 29,95 10 32,95\nvineryardsWineglasssetof2\n3 AnthropologieGotdElegant 1,00 each 19,98 19,98 10 21,98\nSwanDecorativeMetalBottle\nStopperWineSaver\n4 MoonshineStill8Galf30LWater 3,00 each 89,99 269,97 10 296.97\nAlcoholDistillerHomeBrew\nWineMakingKit3Pot\n5 4TupperwareWineStemless 2,00 each 34,99 69,98 10 76,98\nCupsSetAcrylicPlasticShatter\nProofBeveragesNew\nSUMMARY\nVAT Networth VAT Grossworth\n10 401,88 40,19 442,07\nTotal 3401,88 40,19 442,07",
+  "detailed": {
+    "text": "Invoice no: 98858130 Date of issue: Seller: Dominguez, Jackson and Steele 98309 Stephanie Stream Michaelbury, RI 57219 Tax Id: 969-72-5121 IBAN: GB210JGQ49248059733020 ITEMS No. Description Qty 1 Wine Glasses Set Of 4 2,00 2 Uncork New York rolling 5,00 vineryards Wine glass set of 2 3 Anthropologie Gold Elegant 1,00 Swan Decorative Metal Bottle Stopper Wine Saver 4 Moonshine Still 8Gal/30L Water 3,00 Alcohol Distiller Home Brew Wine Making Kit 3 Pot 5 4 Tupperware Wine Stemless 2,00 Cups Set Acrylic Plastic Shatter Proof Beverages New SUMMARY VAT [%] 10% Total 01/28/2021 UM each each each each each Client: Rodriguez, Hall and Tanner PSC 6611, Box 2668 APO AP 07491 Tax Id: 941-88-5692 Net price Net worth VAT [%] 6,00 12,00 10% 5,99 29,95 10% 19,98 19,98 10% 89,99 269,97 10% 34,99 69,98 10% Net worth VAT 401,88 40,19 $ 401,88 $ 40,19 Gross worth 13,20 32,95 21,98 296.97 76,98 Gross worth 442,07 $ 442,07",
+    "confidence": 93.46,
+    "words_detected": 155
+  },
+  "language": "eng",
+  "preprocessing_method": "auto",
+  "processing_time": "1.95s",
+  "timestamp": "2025-09-08T13:42:55.370047",
+  "process_id": "ebd27857-a2f2-44d1-8e65-937220da97a6",
+  "original_filename": "batch1-0017.jpg",
+  "file_size": 212290
+}

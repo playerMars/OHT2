@@ -1,0 +1,83 @@
+{
+  "batch_id": "e27e5d15-fd1d-4d22-bad0-fd1b403460f6",
+  "total_files": 4,
+  "successful": 4,
+  "failed": 0,
+  "success_rate": 100.0,
+  "language": "ara+eng",
+  "method": "auto",
+  "psm_mode": 6,
+  "statistics": {
+    "avg_confidence": 93.1,
+    "total_words": 466,
+    "total_processing_time": "12.10s",
+    "avg_processing_time": "3.03s"
+  },
+  "results": [
+    {
+      "image_path": "uploads\\e27e5d15-fd1d-4d22-bad0-fd1b403460f6\\000_batch1-0008.jpg",
+      "text": "Invoice no: 74589240\nDate of issue: 12/08/2013\nSeller: Client:\nHall-Boyd Haas and Sons\n8719 Reed Street Apt. 120 65628 Brittany Dale\nEast Michelleborough, KY 93895 Walterschester, LA 26239\nTax Id: 977-76-9492 Tax Id: 981-73-4585\n‏:لافقا‎ GB51FSWB55572342266497\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 3D Printed Mat Vortex Itlusion 3,00 each 11,63 34,89 10% 38,38\nLiving room Rug Carpet Floors\nDoors Round Mat\n2 New Golden Brown Oriental Rug 5.00 each 232,65 1 163,25 10% 1 279,58\n4X6 Oushak Chobi Floral\nHand-Knotted Foyer Carpet\n3 YILONG 5.5'x8' Handknotted 1,00 each 10 560,00 10 560,00 10% 11 616,00\nSilk Area Rugs Home Decor\nClassic Blue Carpet 0790\n4 Pretty Woman Small Large Long 1,00 each 36,30 36,30 10% 39,93\nFloor Carpet Area Rugs Various\nSize Soft Rug\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 11 794,44 1179,44 12 973,88\nTotal $11 794,44 $1179,44 $ 12 973,88",
+      "detailed": {
+        "text": "12/08/2013 Client: Haas and Sons 65628 Brittany Dale Walterschester, LA 26239 Tax Id: 981-73-4585 Net price Net worth VAT [%] Gross worth 1163 34,89 10% 38,38 232,65 1 163,25 10% 1 279,58 10 560,00 10 560,00 10% 11 616,00 36,30 36,30 10% 39,93 Net worth VAT Gross worth 11 794,44 1179,44 12 973,88 $11 794,44 $1179,44 $ 12 973,88 UM each each each each Invoice no: 74589240 Date of issue: Seller: Hall-Boyd 8719 Reed Street Apt. 120 East Michelleborough, KY 93895 Tax Id: 977-76-9492 IBAN: GB51FSWB55572342266497 ITEMS No. Description Qty 1 3D Printed Mat Vortex 3,00 Living room Rug Carpet Floors Doors Round Mat 2 New Golden Brown Oriental Rug 5.00 4X6 Oushak Chobi Floral Hand-Knotted Foyer Carpet 3 YILONG 5.5'x8\" Handknotted 1,00 Silk Area Rugs Home Decor Classic Blue Carpet 0790 4 Pretty Woman Small Large Long 1,00 Floor Carpet Area Rugs Various Size Soft Rug SUMMARY VAT [%] 10% Total",
+        "confidence": 92.95,
+        "words_detected": 152
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "4.08s",
+      "timestamp": "2025-09-09T14:07:00.534688",
+      "file_index": 0,
+      "original_filename": "batch1-0008.jpg",
+      "file_size": 208864
+    },
+    {
+      "image_path": "uploads\\e27e5d15-fd1d-4d22-bad0-fd1b403460f6\\001_batch1-0009.jpg",
+      "text": "Invoice no: 81978187\nDate of issue: 01/17/2013\nSeller: Client:\nPadilla-Miller Johnson Ltd\n53017 Lopez Locks 86731 Ryan Throughway Suite 743\nAlecborough, OH 49620 West Jason, CT 15849\nTax Id: 957-92-5322 Tax Id: 922-87-4664\nIBAN: GB91VPMR74805066714957\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Wine Bottle Holder 5.00 each 10,75 53,75 10% 59,13\n2 Cuisinart Stainless Steel Electric 3,00 each 19,90 59,70 10% 65,67\nWine Opener - CWO-25 - Brand\nNew in the Box\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 113,45 11,34 124,79\nTotal $ 113,45 $ 11,34 $ 124,79",
+      "detailed": {
+        "text": "Gross worth 59,13 65,67 Gross worth 124,79 $ 124,79 01/17/2013 Client: Johnson Ltd 86731 Ryan Throughway Suite 743 West Jason, CT 15849 Tax Id: 922-87-4664 Net price Net worth VAT [%] 10,75 53,75 10% 19,90 59,70 10% Net worth VAT 113,45 11,34 $ 113,45 $ 11,34 UM each each 5,00 3,00 VAT [%] 10% Invoice no: 81978187 Date of issue: Seller: Padilla-Miller 53017 Lopez Locks Alecborough, OH 49620 Tax Id: 957-92-5322 IBAN: GB91VPMR74805066714957 ITEMS No. Description 1 Wine Bottle Holder 2 Cuisinart Stainless Steel Electric Wine Opener - CWO-25 - Brand Total New in the Box SUMMARY",
+        "confidence": 93.15,
+        "words_detected": 97
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "2.40s",
+      "timestamp": "2025-09-09T14:07:02.938103",
+      "file_index": 1,
+      "original_filename": "batch1-0009.jpg",
+      "file_size": 166334
+    },
+    {
+      "image_path": "uploads\\e27e5d15-fd1d-4d22-bad0-fd1b403460f6\\002_batch1-0010.jpg",
+      "text": "Invoice no: 99314100\nDate of issue: 06/25/2014\nSeller: Client:\nMichael, Farrell and Lee Collins, Barrett and Schroeder\n95360 Washington Inlet 2314 Beard Via\nPort Sandraview, CT 01507 Kellybury, GA 19687\nTax Id: 993-76-1179 Tax Id: 908-81-7850\nIBAN: GB20WFQR49970703277369\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Real Madrid Inflatable Chair 5.00 each 43,95 219,75 10% 241,73\n(SG16136)\n2 60 Inches Marble Dinning Table 1,00 each 5 756,00 5 756,00 10% 6 331,60\nTop Inlay Work Lawn Table with\nMulti Color Stones\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 5 975,75 597,58 6 573,33\nTotal $5 975,75 $ 597,58 $ 6 573,33",
+      "detailed": {
+        "text": "Gross worth 241,73 6 331,60 Gross worth 6 573,33 $ 6 573,33 06/25/2014 Client: Collins, Barrett and Schroeder 2314 Beard Via Kellybury, GA 19687 Tax Id: 908-81-7850 Net price Net worth VAT [%] each 43,95 219,75 10% each 5 756,00 5 756,00 10% Net worth VAT 5 975,75 597,58 $ 597,58 UM Invoice no: 99314100 Date of issue: Seller: Michael, Farrell and Lee 95360 Washington Inlet Port Sandraview, CT 01507 Tax Id: 993-76-1179 IBAN: GB20WFQR49970703277369 ITEMS No. Description Qty 1 Real Madrid Inflatable Chair 5,00 (SG16136) 2 60 Inches Marble Dinning Table 1,00 Top Inlay Work Lawn Table with Multi Color Stones SUMMARY VAT [%] 10% Total",
+        "confidence": 93.2,
+        "words_detected": 107
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "2.37s",
+      "timestamp": "2025-09-09T14:07:05.316205",
+      "file_index": 2,
+      "original_filename": "batch1-0010.jpg",
+      "file_size": 174190
+    },
+    {
+      "image_path": "uploads\\e27e5d15-fd1d-4d22-bad0-fd1b403460f6\\003_batch1-0011.jpg",
+      "text": "Invoice no: 68688408\nDate of issue: 03/20/2016\nSeller: Client:\nTorres and Sons Dennis, Levy and Bowen\n4052 Brown Roads 523 Leslie Manors\nHaysstad, N) 06418 Lake Colleenville, CT 12053\nTax Id: 953-84-2239 Tax Id: 904-82-9186\nIBAN: GB84XSNO58142814072766\nITEMS\nNo. Description Qty UM Net price Net worth VAT [%] Gross\nworth\n1 Nike 747998-401 Team Hustle 3,00 each 10,99 32,97 10% 36,27\n07 Kids Blue Mid Top Basketball\nShoes Size 497 US\n2 Jordan Nike Kid Air 1 Retro High 1,00 each 50,00 50,00 10% 55,00\nBlack Gray Elephant Size 7\n838850-013\nSUMMARY\nVAT [%] Net worth VAT Gross worth\n10% 82,97 8,30 91,27\nTotal $ 82,97 $ 8,30 $ 91,27",
+      "detailed": {
+        "text": "Gross worth 36,27 55,00 Gross worth 91,27 $ 91,27 Dennis, Levy and Bowen 523 Leslie Manors Lake Colleenville, CT 12053 Tax Id: 904-82-9186 Net worth VAT [%] 10% 10% 32,97 50,00 VAT 8,30 $ 8,30 03/20/2016 Client: Net price 10,99 50,00 Net worth 82,97 $ 82,97 UM each each Invoice no: 68688408 Date of issue: Seller: Torres and Sons 4052 Brown Roads Haysstad, NJ 06418 Tax Id: 953-84-2239 IBAN: GB84XSNO58142814072766 ITEMS No. Description Qty 1 Nike 747998-401 Team Hustle 3,00 07 Kids Blue Mid Top Basketball Shoes Size 497 US 2 Jordan Nike Kid Air 1 Retro High 1,00 Black Gray Elephant Size 7 838850-013 SUMMARY VAT [(%] 10% Total",
+        "confidence": 93.1,
+        "words_detected": 110
+      },
+      "language": "ara+eng",
+      "preprocessing_method": "auto",
+      "processing_time": "3.25s",
+      "timestamp": "2025-09-09T14:07:08.568996",
+      "file_index": 3,
+      "original_filename": "batch1-0011.jpg",
+      "file_size": 175665
+    }
+  ],
+  "timestamp": "2025-09-09T14:07:08.569129"
+}
